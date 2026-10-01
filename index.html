@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <h2>🎓 Student Management System</h2>
+
+        <nav>
+
+            <a href="#" data-view="dashboard" class="active">
+                📊 Dashboard
+            </a>
+
+            <a href="#" data-view="students">
+                👥 Students
+            </a>
+
+            <a href="#" data-view="add">
+                ➕ Add Student
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="content">
+
+        <button id="menuBtn" class="menu-btn">
+            ☰
+        </button>
+
+        <!-- Status messages -->
+        <div id="status"></div>
+
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="view">
+
+            <h1>Dashboard</h1>
+
+            <p>Student Management System</p>
+
+        </section>
+
+
+        <!-- Students -->
+        <section id="students" class="view" hidden>
+
+            <h1>Students</h1>
+
+            <p>Student list will appear here.</p>
+
+        </section>
+
+
+        <!-- Add Student -->
+        <section id="add" class="view" hidden>
+
+            <h1>Add Student</h1>
+
+            <p>Add student form will appear here.</p>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

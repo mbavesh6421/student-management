@@ -1,0 +1,771 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #3730a3;
+    --background: #f5f7fb;
+    --sidebar: #111827;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --white: #ffffff;
+    --border: #e5e7eb;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 250px;
+    height: 100vh;
+
+    background: var(--sidebar);
+    color: white;
+
+    padding: 24px 16px;
+
+    z-index: 1000;
+}
+
+
+.sidebar h2 {
+    font-size: 20px;
+    line-height: 1.4;
+
+    margin-bottom: 35px;
+}
+
+
+/* Navigation */
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+.sidebar nav a {
+    text-decoration: none;
+    color: #d1d5db;
+
+    padding: 13px 15px;
+
+    border-radius: 8px;
+
+    transition: 0.2s;
+}
+
+
+.sidebar nav a:hover {
+    background: #1f2937;
+    color: white;
+}
+
+
+.sidebar nav a.active {
+    background: var(--primary);
+    color: white;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.content {
+    margin-left: 250px;
+
+    min-height: 100vh;
+
+    padding: 30px;
+}
+
+
+/* =========================
+   MENU BUTTON
+========================= */
+
+.menu-btn {
+    display: none;
+
+    border: none;
+    background: var(--primary);
+    color: white;
+
+    padding: 10px 14px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+
+p {
+    color: var(--muted);
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+#status {
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        transform: translateX(-100%);
+        transition: 0.3s;
+    }
+
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+
+    .content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+
+    .menu-btn {
+        display: block;
+    }
+
+}
+/* ================================
+   DASHBOARD
+================================ */
+
+.dashboard-subtitle {
+    margin-bottom: 25px;
+}
+
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(160px, 1fr));
+
+    gap: 16px;
+
+    margin-bottom: 25px;
+}
+
+
+.card {
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.04);
+
+}
+
+
+.card h2 {
+
+    font-size: 19px;
+
+    margin-bottom: 16px;
+
+}
+
+
+.stat h3 {
+
+    font-size: 14px;
+
+    color: var(--muted);
+
+    margin-bottom: 8px;
+
+}
+
+
+.stat p {
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+}
+
+
+.stat.total {
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+
+.stat.total h3 {
+
+    color: #c7d2fe;
+
+}
+
+
+.stat.total p {
+
+    color: white;
+
+}
+
+
+/* ================================
+   TABLE
+================================ */
+
+.table-wrap {
+
+    overflow-x: auto;
+
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+th,
+td {
+
+    text-align: left;
+
+    padding: 13px;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+th {
+
+    background: #f9fafb;
+
+    font-size: 13px;
+
+    color: var(--muted);
+
+    text-transform: uppercase;
+
+}
+
+
+tbody tr:hover {
+
+    background: #f9fafb;
+
+}
+
+
+/* ================================
+   LOADING / ERROR
+================================ */
+
+.loading,
+.error {
+
+    padding: 14px;
+
+    border-radius: 8px;
+
+    margin-bottom: 16px;
+
+}
+
+
+.loading {
+
+    background: #e0e7ff;
+
+    color: #3730a3;
+
+}
+
+
+.error {
+
+    background: #fee2e2;
+
+    color: #991b1b;
+
+}
+/* ================================
+   STUDENT LIST
+================================ */
+
+.page-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.page-header h1 {
+
+    margin-bottom: 5px;
+
+}
+
+
+.primary-btn {
+
+    border: none;
+
+    background: var(--primary);
+
+    color: white;
+
+    padding: 11px 16px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.primary-btn:hover {
+
+    background: var(--primary-dark);
+
+}
+
+
+/* Department badge */
+
+.department-badge {
+
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    background: #eef2ff;
+
+    color: #4338ca;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+/* Small text */
+
+.student-table small {
+
+    color: var(--muted);
+
+}
+
+
+/* Action buttons */
+
+.action-buttons {
+
+    display: flex;
+
+    gap: 7px;
+
+}
+
+
+.edit-btn,
+.delete-btn {
+
+    border: none;
+
+    padding: 7px 10px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+.edit-btn {
+
+    background: #e0e7ff;
+
+    color: #3730a3;
+
+}
+
+
+.delete-btn {
+
+    background: #fee2e2;
+
+    color: #991b1b;
+
+}
+
+
+.edit-btn:hover {
+
+    background: #c7d2fe;
+
+}
+
+
+.delete-btn:hover {
+
+    background: #fecaca;
+
+}
+
+
+/* ================================
+   EMPTY STATE
+================================ */
+
+.empty-state {
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 60px 20px;
+
+    text-align: center;
+
+}
+
+
+.empty-icon {
+
+    font-size: 50px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.empty-state h2 {
+
+    margin-bottom: 8px;
+
+}
+
+
+.empty-state p {
+
+    margin-bottom: 20px;
+
+}
+
+
+/* ================================
+   MOBILE STUDENT TABLE
+================================ */
+
+@media (max-width: 900px) {
+
+    .student-table {
+
+        min-width: 1000px;
+
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .page-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+}
+/* =========================================
+   ADD / EDIT STUDENT FORM
+========================================= */
+
+.form-card {
+    max-width: 900px;
+    margin-top: 20px;
+}
+
+
+/* Form layout */
+
+#studentForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 24px;
+}
+
+
+/* Form group */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Labels */
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+
+.form-group label span {
+    color: #dc2626;
+}
+
+
+/* Inputs and Selects */
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 44px;
+
+    padding: 10px 12px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #1f2937;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: all 0.2s ease;
+}
+
+
+/* Focus */
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #4f46e5;
+
+    box-shadow:
+        0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+
+/* Placeholder */
+
+.form-group input::placeholder {
+    color: #9ca3af;
+}
+
+
+/* Validation error */
+
+.field-error {
+    min-height: 18px;
+
+    margin-top: 5px;
+
+    color: #dc2626;
+
+    font-size: 12px;
+}
+
+
+/* Buttons area */
+
+.form-actions {
+    grid-column: 1 / -1;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+
+/* Primary button */
+
+.primary-btn {
+    border: none;
+
+    background: #4f46e5;
+
+    color: white;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.primary-btn:hover {
+    background: #3730a3;
+}
+
+
+/* Secondary button */
+
+.secondary-btn {
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    color: #374151;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.secondary-btn:hover {
+    background: #f3f4f6;
+}
+
+
+/* =========================================
+   MOBILE FORM
+========================================= */
+
+@media (max-width: 700px) {
+
+    #studentForm {
+        grid-template-columns: 1fr;
+    }
+
+
+    .form-actions {
+        grid-column: auto;
+
+        flex-direction: column-reverse;
+    }
+
+
+    .form-actions button {
+        width: 100%;
+    }
+
+}
